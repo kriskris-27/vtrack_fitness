@@ -15,6 +15,8 @@ const Container = styled.div`
   justify-content: center;
   padding: 22px 0px;
   overflow-y: scroll;
+  
+  
 `;
 const Wrapper = styled.div`
   flex: 1;
@@ -87,6 +89,8 @@ const Dashboard = () => {
     setLoading(true);
     const token = localStorage.getItem("fittrack-app-token");
     await getWorkouts(token, "").then((res) => {
+        console.log("token",token);
+        
       setTodaysWorkouts(res?.data?.todaysWorkouts);
       console.log(res.data);
       setLoading(false);
@@ -96,14 +100,20 @@ const Dashboard = () => {
   const addNewWorkout = async () => {
     setButtonLoading(true);
     const token = localStorage.getItem("fittrack-app-token");
+    console.log("addnewworkout after token");
+    
     await addWorkout(token, { workoutString: workout })
       .then((res) => {
+        
+        console.log("addnewworkout after await");
+
         dashboardData();
         getTodaysWorkout();
         setButtonLoading(false);
       })
       .catch((err) => {
-        alert(err);
+        alert("this is the add new workout error");
+        console.log(err)
       });
   };
 

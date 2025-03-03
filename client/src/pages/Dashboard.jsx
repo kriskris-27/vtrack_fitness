@@ -78,7 +78,7 @@ const Dashboard = () => {
 
   const dashboardData = async () => {
     setLoading(true);
-    const token = localStorage.getItem("fittrack-app-token");
+    const token = localStorage.getItem("spitfire-app-token");
     await getDashboardDetails(token).then((res) => {
       setData(res.data);
       console.log(res.data);
@@ -87,7 +87,7 @@ const Dashboard = () => {
   };
   const getTodaysWorkout = async () => {
     setLoading(true);
-    const token = localStorage.getItem("fittrack-app-token");
+    const token = localStorage.getItem("spitfire-app-token");
     await getWorkouts(token, "").then((res) => {
         console.log("token",token);
         
@@ -99,7 +99,7 @@ const Dashboard = () => {
 
   const addNewWorkout = async () => {
     setButtonLoading(true);
-    const token = localStorage.getItem("fittrack-app-token");
+    const token = localStorage.getItem("spitfire-app-token");
     console.log("addnewworkout after token");
     
     await addWorkout(token, { workoutString: workout })

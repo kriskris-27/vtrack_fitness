@@ -12,6 +12,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 36px;
+    color:white;
+
 `;
 const Title = styled.div`
   font-size: 30px;

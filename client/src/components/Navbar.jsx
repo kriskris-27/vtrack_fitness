@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { logout } from "../redux/reducers/userSlice";
 
 const Nav = styled.div`
-  background-color: ${({ theme }) => theme.bg};
+  background-color:#f2f2f2;
   height: 80px;
   display: flex;
   align-items: center;
@@ -18,6 +18,7 @@ const Nav = styled.div`
   top: 0;
   z-index: 10;
   color: white;
+  border-radius:1.5rem;
   border-bottom: 1px solid ${({ theme }) => theme.text_secondary + 20};
 `;
 const NavContainer = styled.div`
@@ -43,9 +44,10 @@ const NavLogo = styled(LinkR)`
 `;
 const Logo = styled.img`
   height: 42px;
+  border-radius:50%
 `;
 const Mobileicon = styled.div`
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.bg};
   display: none;
   @media screen and (max-width: 768px) {
     display: flex;
@@ -61,19 +63,20 @@ const NavItems = styled.ul`
   gap: 32px;
   padding: 0 6px;
   list-style: none;
-
   @media screen and (max-width: 768px) {
     display: none;
+    color:#f2f2f2;
   }
 `;
 const Navlink = styled(NavLink)`
   display: flex;
   align-items: center;
-  color: ${({ theme }) => theme.text_primary};
+  color:${({ theme }) => theme.bg};
   font-weight: 500;
   cursor: pointer;
   transition: all 1s slide-in;
   text-decoration: none;
+  
   &:hover {
     color: ${({ theme }) => theme.primary};
   }
@@ -91,7 +94,7 @@ const UserContainer = styled.div`
   gap: 16px;
   align-items: center;
   padding: 0 6px;
-  color: ${({ theme }) => theme.primary};
+  color: #f2f2f2;
 `;
 const TextButton = styled.div`
   text-align: end;
@@ -112,19 +115,20 @@ const MobileMenu = styled.ul`
   gap: 16px;
   padding: 0 6px;
   list-style: none;
-  width: 90%;
-  padding: 12px 40px 24px 40px;
-  background: ${({ theme }) => theme.bg};
+  width: 95%;
+  padding: 20px;
+  background:#f2f2f2;
   position: absolute;
   top: 80px;
   right: 0;
   transition: all 0.6s ease-in-out;
   transform: ${({ isOpen }) =>
     isOpen ? "translateY(0)" : "translateY(-100%)"};
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+ box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   opacity: ${({ isOpen }) => (isOpen ? "100%" : "0")};
   z-index: ${({ isOpen }) => (isOpen ? "1000" : "-1000")};
+  
 `;
 
 const Navbar = ({ currentUser }) => {
@@ -158,7 +162,7 @@ const Navbar = ({ currentUser }) => {
         </NavItems>
 
         <UserContainer>
-          <Avatar src={currentUser?.img}>{currentUser?.name[0]}</Avatar>
+          <Avatar src={ currentUser?.img}>{currentUser?.name[0]}</Avatar>
           <TextButton onClick={() => dispatch(logout())}>Logout</TextButton>
         </UserContainer>
       </NavContainer>

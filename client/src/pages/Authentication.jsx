@@ -10,6 +10,7 @@ const Container = styled.div`
   height: 100%;
   display: flex;
   background: ${({ theme }) => theme.bg};
+  background-color:#424242;
   @media (max-width: 700px) {
     flex-direction: column;
   }
@@ -49,7 +50,7 @@ const Right = styled.div`
 const Text = styled.div`
   font-size: 16px;
   text-align: center;
-  color: ${({ theme }) => theme.text_secondary};
+  color: white;
   margin-top: 16px;
   @media (max-width: 400px) {
     font-size: 14px;
@@ -60,6 +61,7 @@ const TextButton = styled.span`
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 600;
+  
 `;
 
 const Authentication = () => {

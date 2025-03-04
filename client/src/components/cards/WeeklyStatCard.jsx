@@ -44,7 +44,7 @@ const Card = styled.div`
   }
 
   @media (max-width: 600px) {
-    padding: 16px;
+   
     touch-action: none;
   }
 `;
@@ -58,6 +58,7 @@ const Title = styled.div`
 
   @media (max-width: 600px) {
     font-size: 14px;
+    touch-action: none;
   }
 `;
 

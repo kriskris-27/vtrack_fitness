@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { PieChart } from "@mui/x-charts/PieChart";
 
+// Card container with 3D hover effect and gradient background
 const Card = styled.div`
   flex: 1;
   min-width: 280px;
@@ -26,6 +27,7 @@ const Card = styled.div`
   }
 `;
 
+// Title for the card
 const Title = styled.div`
   font-weight: 600;
   font-size: 16px;
@@ -42,6 +44,7 @@ const Title = styled.div`
   }
 `;
 
+// Container for the pie chart with opacity control
 const ChartContainer = styled.div`
   height: 300px;  // Fixed height for the pie chart container
   opacity: 0.4;  // Lower opacity initially for the chart
@@ -66,6 +69,7 @@ const CategoryChart = ({ data }) => {
               paddingAngle: 5,
               cornerRadius: 5,
             }]}
+
             height={300}
           />
         </ChartContainer>

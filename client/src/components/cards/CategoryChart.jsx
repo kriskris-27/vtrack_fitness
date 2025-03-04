@@ -22,6 +22,7 @@ const Card = styled.div`
 
   @media (max-width: 600px) {
     padding: 16px;
+    touch-action: none;
   }
 `;
 

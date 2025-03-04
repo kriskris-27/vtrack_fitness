@@ -105,7 +105,7 @@ const Dashboard = () => {
     await addWorkout(token, { workoutString: workout })
       .then((res) => {
         
-        console.log("addnewworkout after await");
+        console.log("addnewworkout after await",workout);
 
         dashboardData();
         getTodaysWorkout();

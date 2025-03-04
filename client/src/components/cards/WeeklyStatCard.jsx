@@ -21,7 +21,7 @@ const Card = styled.div`
   cursor: pointer;
 
   &:hover {
-    transform:  rotateX(-5deg) rotateY(5deg);
+    transform: rotateX(-5deg) rotateY(5deg);
     filter: brightness(1.1);
   }
 
@@ -44,8 +44,8 @@ const Card = styled.div`
   }
 
   @media (max-width: 600px) {
-   
-    touch-action: none;
+    padding: 16px;
+    touch-action: none; /* Disable touch functionality on mobile for card */
   }
 `;
 
@@ -58,7 +58,7 @@ const Title = styled.div`
 
   @media (max-width: 600px) {
     font-size: 14px;
-    touch-action: none;
+    touch-action: none;  /* Disable touch actions for title on mobile */
   }
 `;
 
@@ -71,6 +71,10 @@ const Content = styled.div`
 
   ${Card}:hover & {
     opacity: 1; /* Full opacity when card is hovered */
+  }
+
+  @media (max-width: 600px) {
+    touch-action: none; /* Disable touch actions for content on mobile */
   }
 `;
 

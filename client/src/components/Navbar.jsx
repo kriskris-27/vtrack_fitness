@@ -8,7 +8,6 @@ import { useDispatch } from "react-redux";
 import { logout } from "../redux/reducers/userSlice";
 
 const Nav = styled.div`
-  background-color:#f2f2f2;
   height: 80px;
   display: flex;
   align-items: center;
@@ -20,7 +19,9 @@ const Nav = styled.div`
   color: white;
   border-radius:1.5rem;
   border-bottom: 1px solid ${({ theme }) => theme.text_secondary + 20};
+  box-shadow: rgba(255, 106, 0, 0.08) 0px 20px 25px -5px, rgba(255, 123, 0, 0.04) 0px 10px 10px -5px;
 `;
+
 const NavContainer = styled.div`
   width: 100%;
   max-width: 1400px;
@@ -40,14 +41,14 @@ const NavLogo = styled(LinkR)`
   font-weight: 600;
   font-size: 18px;
   text-decoration: none;
-  color: ${({ theme }) => theme.black};
+  color: ${({ theme }) => theme.white};
 `;
 const Logo = styled.img`
   height: 42px;
   border-radius:50%
 `;
 const Mobileicon = styled.div`
-  color: ${({ theme }) => theme.bg};
+  color: ${({ theme }) => theme.white};
   display: none;
   @media screen and (max-width: 768px) {
     display: flex;
@@ -63,6 +64,7 @@ const NavItems = styled.ul`
   gap: 32px;
   padding: 0 6px;
   list-style: none;
+
   @media screen and (max-width: 768px) {
     display: none;
     color:#f2f2f2;
@@ -71,7 +73,7 @@ const NavItems = styled.ul`
 const Navlink = styled(NavLink)`
   display: flex;
   align-items: center;
-  color:${({ theme }) => theme.bg};
+  color:${({ theme }) => theme.white};
   font-weight: 500;
   cursor: pointer;
   transition: all 1s slide-in;
@@ -83,6 +85,18 @@ const Navlink = styled(NavLink)`
   &.active {
     color: ${({ theme }) => theme.primary};
     border-bottom: 1.8px solid ${({ theme }) => theme.primary};
+  }
+
+    @media screen and (max-width: 768px) {
+      color:${({ theme }) => theme.bg};
+    &:hover {
+    color: ${({ theme }) => theme.primary};
+  }
+  &.active {
+    color: ${({ theme }) => theme.primary};
+    border-bottom: 1.8px solid ${({ theme }) => theme.primary};
+  }
+   
   }
 `;
 
@@ -118,6 +132,7 @@ const MobileMenu = styled.ul`
   width: 95%;
   padding: 20px;
   background:#f2f2f2;
+  color:black;
   position: absolute;
   top: 80px;
   right: 0;

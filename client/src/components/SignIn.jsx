@@ -7,23 +7,57 @@ import { useDispatch } from "react-redux";
 import { loginSuccess } from "../redux/reducers/userSlice";
 
 const Container = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(24, 20, 20, 0.987);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  gap: 36px;
-    color:white;
+  gap: 30px;
 
+  @media (max-width: 600px) {
+    padding: 20px;
+  }
 `;
+
 const Title = styled.div`
   font-size: 30px;
   font-weight: 800;
-  color: ${({ theme }) => theme.text_primary};
+  color: #fff;
 `;
+
 const Span = styled.div`
   font-size: 16px;
   font-weight: 400;
-  color: ${({ theme }) => theme.text_secondary + 90};
+  color: #fff;
+  margin-bottom: 20px; // Adjust spacing based on your layout needs
+`;
+
+const StyledInput = styled.input`
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  &:focus {
+    border-bottom: 1px solid #bdb8b8;
+  }
 `;
 
 const SignIn = () => {
@@ -41,14 +75,14 @@ const SignIn = () => {
     return true;
   };
 
-  const handelSignIn = async () => {
+  const handleSignIn = async () => {
     setLoading(true);
     setButtonDisabled(true);
     if (validateInputs()) {
       await UserSignIn({ email, password })
         .then((res) => {
           dispatch(loginSuccess(res.data));
-          alert("Login Success");
+        //   alert("Login Success");
           setLoading(false);
           setButtonDisabled(false);
         })
@@ -62,37 +96,26 @@ const SignIn = () => {
 
   return (
     <Container>
-      <div>
-        <Title>Welcome to Spitfire 🔥🗿</Title>
-        <Span>Please login with your details here</Span>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          gap: "20px",
-          flexDirection: "column",
-        }}
-      >
-        <TextInput
-          label="Email Address"
-          placeholder="Enter your email address"
-          value={email}
-          handelChange={(e) => setEmail(e.target.value)}
-        />
-        <TextInput
-          label="Password"
-          placeholder="Enter your password"
-          password
-          value={password}
-          handelChange={(e) => setPassword(e.target.value)}
-        />
-        <Button
-          text="SignIn"
-          onClick={handelSignIn}
-          isLoading={loading}
-          isDisabled={buttonDisabled}
-        />
-      </div>
+      <Title>Welcome to Spitfire 🔥🗿</Title>
+      <Span>Please login with your details here</Span>
+      <StyledInput
+        type="email"
+        placeholder="Enter your email address"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <StyledInput
+        type="password"
+        placeholder="Enter your password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <Button
+        text="SignIn"
+        onClick={handleSignIn}
+        isLoading={loading}
+        isDisabled={buttonDisabled}
+      />
     </Container>
   );
 };
